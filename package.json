@@ -2,8 +2,21 @@
   "name": "libpcap",
   "version": "0.1.0",
   "description": "",
+  "private": false,
   "main": "./dist/index.js",
-  "scripts": {},
+  "module": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup ./src/index.ts --dts --format esm,cjs --sourcemap"
+  },
   "keywords": [
     "pcap",
     "libpcap",
@@ -14,6 +27,11 @@
   "author": "Mikkel RINGAUD <mikkel@milescode.dev> (https://github.com/Vexcited)",
   "license": "MIT",
   "dependencies": {
-    "koffi": "^2.6.4"
+    "koffi": "^2.6.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.9",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2"
   }
 }
