@@ -8,6 +8,7 @@
     "dstaddr",
     "findalldevs",
     "libpcap",
+    "Npcap",
     "pcap",
     "wpcap"
   ]
