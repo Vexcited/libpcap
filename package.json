@@ -1,0 +1,19 @@
+{
+  "name": "libpcap",
+  "version": "0.1.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "scripts": {},
+  "keywords": [
+    "pcap",
+    "libpcap",
+    "packet",
+    "network",
+    "koffi"
+  ],
+  "author": "Mikkel RINGAUD <mikkel@milescode.dev> (https://github.com/Vexcited)",
+  "license": "MIT",
+  "dependencies": {
+    "koffi": "^2.6.4"
+  }
+}

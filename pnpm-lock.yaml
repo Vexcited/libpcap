@@ -1,0 +1,17 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  koffi:
+    specifier: ^2.6.4
+    version: 2.6.4
+
+packages:
+
+  /koffi@2.6.4:
+    resolution: {integrity: sha512-/T6fhJ0nSbrxOoREPoo702k/4gviRhqSt9v1E9IIt4YF4KYkRZMT4KAyHAse5wHGCBaVym50blGForX1797+gA==}
+    requiresBuild: true
+    dev: false
