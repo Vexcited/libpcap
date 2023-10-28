@@ -7,7 +7,7 @@ koffi.struct('sockaddr', {
 });
 
 koffi.struct('pcap_addr', {
-  next: 'void *',
+  next: 'pcap_addr *',
   addr: 'sockaddr *',
   netmask: 'sockaddr *',
   broadaddr: 'sockaddr *',
@@ -15,7 +15,7 @@ koffi.struct('pcap_addr', {
 });
 
 koffi.struct('pcap_if', {
-  next: 'void *',
+  next: 'pcap_if *',
   name: 'char *',
   description: 'char *',
   addresses: 'pcap_addr *',
