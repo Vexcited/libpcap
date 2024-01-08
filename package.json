@@ -15,7 +15,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup ./src/index.ts --dts --format esm,cjs --sourcemap"
+    "build": "tsup ./src/index.ts --dts --format esm,cjs --sourcemap",
+    "tsx": "tsx"
   },
   "keywords": [
     "pcap",
@@ -27,11 +28,12 @@
   "author": "Mikkel RINGAUD <mikkel@milescode.dev> (https://github.com/Vexcited)",
   "license": "MIT",
   "dependencies": {
-    "koffi": "^2.6.6"
+    "koffi": "^2.7.1"
   },
   "devDependencies": {
-    "@types/node": "^20.8.9",
-    "tsup": "^7.2.0",
-    "typescript": "^5.2.2"
+    "@types/node": "^20.10.7",
+    "tsup": "^8.0.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
   }
 }
