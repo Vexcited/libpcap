@@ -8,9 +8,12 @@ This project was made possible thanks to [`koffi`](https://koffi.dev/), an aweso
 
 ## Prerequisites
 
-You'll need to install [Npcap and their SDK](https://npcap.com/#download).
+You'll need to install [Npcap](https://npcap.com/#download).
 
-> **Note to myself or contributors:** Explain more the installation process of the SDK.
+Check that you have the `wpcap.dll` file at `C:\Windows\System32\Npcap\wpcap.dll` - should be the default location.
+
+If you had WinPcap installed before, you'll need to uninstall it or
+find a way to use the `wpcap.dll` from Npcap instead of the one from WinPcap.
 
 ## Usage
 
