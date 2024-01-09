@@ -2,7 +2,7 @@
 
 > **Note:** This project is still in development. It is not ready for production use.
 
-Only supports Windows for now.
+**Only supports Windows**, for now. Contributions are welcome.
 
 This project was made possible thanks to [`koffi`](https://koffi.dev/), an awesome and fast C FFI module for Node.js.
 

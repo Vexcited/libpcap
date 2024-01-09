@@ -7,9 +7,14 @@
     "broadaddr",
     "dstaddr",
     "findalldevs",
+    "INET",
+    "Internetwork",
     "libpcap",
     "Npcap",
+    "ntoa",
+    "ntop",
     "pcap",
+    "UNSPEC",
     "wpcap"
   ]
 }
