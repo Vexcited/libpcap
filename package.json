@@ -1,5 +1,5 @@
 {
-  "name": "libpcap",
+  "name": "libpcap-ffi",
   "version": "0.1.0",
   "description": "",
   "private": false,
