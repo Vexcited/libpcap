@@ -1,1 +1,1 @@
-export { findAllDevs as findalldevs } from "./api/findAllDevices";
+export { findAllDevs } from "./api/findAllDevs";
