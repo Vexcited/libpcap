@@ -1,6 +1,6 @@
 # libpcap - `wpcap.dll` wrapper for Node.js
 
-> **Note:** This project is still in development. It is not ready for production use.
+> **Note:** This project is still in development.
 
 **Only supports Windows**, for now. Contributions are welcome.
 
@@ -17,10 +17,15 @@ find a way to use the `wpcap.dll` from Npcap instead of the one from WinPcap.
 
 ## Usage
 
-```js
-// Or with CJS : const { findAllDevs } = require("libpcap");
-import { findAllDevs } from "libpcap";
+Every functions can be directly imported from `libpcap`, so if you want to use `findAllDevs`, you can simply do:
 
+```js
+// ESM
+import { findAllDevs } from "libpcap";
+// CJS
+const { findAllDevs } = require("libpcap");
+
+// Just use it !
 const devices = findAllDevs();
 console.log(devices);
 /** >>> Returns the following array:
@@ -35,28 +40,6 @@ console.log(devices);
  * ]
  */
 ```
-
-## API
-
-### Overview
-
-- [`Device`](#device)
-- [`findAllDevs()`](#findalldevs-device)
-
-### `Device`
-
-```ts
-interface Device {
-  name: string;
-  description: string;
-  addresses: any[]; // TODO: Make an interface for this.
-  flags: number;
-}
-```
-
-### `findAllDevs(): Device[]`
-
-Returns an array of `Device` objects.
 
 ## Contributing
 
@@ -75,7 +58,12 @@ Note that we use `pnpm` to manage dependencies.
 A list of things to do to make the library more complete.
 
 - [x] Remove `next` attribute on `Device` objects.
-- [ ] Parse `addresses` attribute on `Device` objects.
-  - [ ] Make an interface for the `addresses` attribute.
+- [x] Parse `addresses` attribute on `Device` objects.
+  - [x] Make an interface for the `addresses` attribute.
   - [x] Read them as an array of object.
   - [x] Make a function to parse those.
+
+## Resources
+
+- <https://beej.us/guide/bgnet/pdf/bgnet_a4_c_2.pdf>
+- <https://www.tcpdump.org/manpages>

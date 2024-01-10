@@ -1,13 +1,24 @@
-import { findAllDevs } from "../src/index";
+import { findalldevs } from "../src/index";
 
-const devices = findAllDevs();
+const devices = findalldevs();
 devices.forEach((device) => {
-  console.log(device.name);
-  console.log("->", device.description);
+  console.log("\n---------");
 
-  device.addresses?.forEach(address => {
-    console.log(address);
-  })
+  console.log(device.name);
+  console.log("=>", device.description);
   
-  console.log();
+  console.log("---------");
+
+  if (device.addresses.length > 0) {
+    device.addresses.forEach(address => {
+      console.log("(address):", address.addr)
+      console.log("(netmask):", address.netmask)
+      console.log("(broadcast):", address.broadaddr)
+      console.log("(destination):", address.dstaddr)
+      console.log("---------")
+    })
+  }
+  else {
+    console.log("-> No address found on the device.");
+  }
 });
