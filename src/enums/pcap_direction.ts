@@ -1,0 +1,5 @@
+export enum PCAP_DIRECTION {
+  PCAP_D_INOUT = 0,
+  PCAP_D_IN,
+  PCAP_D_OUT
+}

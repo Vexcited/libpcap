@@ -15,7 +15,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup ./src/index.ts --dts --format esm,cjs --sourcemap",
+    "build": "tsup ./src/index.ts --minify --dts --format esm,cjs --sourcemap",
     "docs": "typedoc ./src/index.ts --json docs.json",
     "tsx": "tsx"
   },
