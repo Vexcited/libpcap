@@ -7,7 +7,7 @@ export interface PcapAddr {
 
 export interface FoundDevice {
   name: string;
-  description: string;
+  description: string | null;
   addresses: Array<PcapAddr>;
   flags: number;
 }

@@ -6,23 +6,22 @@ import { parse_pcap_if } from "~/parser/pcap_if";
 import { make_ptr, read_ptr } from "~/utils/pointer";
 import koffi from "koffi";
 
-export const findAllDevs = (): Array<FoundDevice> => {
+export const findAllDevs = async (): Promise<Array<FoundDevice>> => {
   const error_buffer = make_ptr("");
   const devices_ptr = make_ptr(null);
 
-  if (pcap_findalldevs(devices_ptr, error_buffer) !== 0) { // Handle potential error.
+  if (await pcap_findalldevs(devices_ptr, error_buffer) !== 0) { // Handle potential error.
     throw new Error(`pcap_findalldevs: returned value different from 0.\nerror_buffer: ${read_ptr(error_buffer) || "(empty)"}`);
   }
-  
+
   const devices: Array<FoundDevice> = [];
 
   for (let device = read_ptr(devices_ptr); device !== null;) {
     // Decode the struct.
-    init_struct_pcap_if();
-    const pcap_if: StructPcapIf = koffi.decode(device, 'pcap_if');
-  
+    const pcap_if: StructPcapIf = koffi.decode(device, "pcap_if");
+
     // Parse the struct and store it.
-    devices.push(parse_pcap_if(pcap_if));
+    devices.push(await parse_pcap_if(pcap_if));
 
     // Iterate to next device.
     device = pcap_if.next;

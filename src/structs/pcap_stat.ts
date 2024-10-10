@@ -30,4 +30,4 @@ export const init_struct_pcap_stat = (): void => {
   koffi.struct("pcap_stat", struct);
 
   initialized = true;
-}
+};

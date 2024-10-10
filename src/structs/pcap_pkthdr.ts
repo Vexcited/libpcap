@@ -17,4 +17,4 @@ export const init_struct_pcap_pkthdr = (): void => {
   });
 
   initialized = true;
-}
+};

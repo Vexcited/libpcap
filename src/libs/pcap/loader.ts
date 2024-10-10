@@ -1,21 +1,21 @@
-import koffi from 'koffi';
-let lib: koffi.IKoffiLib | undefined;
+import koffi from "koffi";
+import { cached } from "~/utils/initializers";
 
 export const load_libpcap = (): koffi.IKoffiLib => {
-  if (lib) return lib;
-  let destination: string;
+  return cached(load_libpcap, () => {
+    let destination: string;
 
-  switch (process.platform) {
-    case 'win32':
-      destination = "wpcap.dll";
-      break;
-    case 'darwin':
-      destination = 'libpcap.dylib';
-      break;
-    default:
-      destination = 'libpcap.so';
-  }
-  
-  lib = koffi.load(destination);
-  return lib;
+    switch (process.platform) {
+      case "win32":
+        destination = "wpcap.dll";
+        break;
+      case "darwin":
+        destination = "libpcap.dylib";
+        break;
+      default:
+        destination = "libpcap.so";
+    }
+
+    return koffi.load(destination);
+  });
 };

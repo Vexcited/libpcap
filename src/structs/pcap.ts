@@ -13,12 +13,12 @@ export const init_struct_pcap = (): void => {
   init_struct_pcap_pkthdr();
   init_struct_pcap_stat();
 
-  koffi.opaque("HANDLE")
+  koffi.opaque("HANDLE");
 
-  koffi.struct('pcap', {
+  koffi.struct("pcap", {
     read_op: "int",
     next_packet_op: "int",
-    
+
     handle: "HANDLE *",
 
     bufsize: "uint",
@@ -90,7 +90,7 @@ export const init_struct_pcap = (): void => {
 
     // TODO: ???
     oneshot_callback: "void *",
-    
+
     stats_ex_op: "int",
     setbuff_op: "int",
     setmode_op: "int",

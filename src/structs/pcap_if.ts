@@ -1,7 +1,7 @@
+import { init_struct_pcap_addr, type StructPcapAddr } from "~/structs/pcap_addr";
+import { cached } from "~/utils/initializers";
 import type { ext } from "~/types/external";
-import { init_struct_pcap_addr, type StructPcapAddr } from "./pcap_addr";
 import koffi from "koffi";
-let initialized = false;
 
 export interface StructPcapIf {
   next: ext<StructPcapIf> | null
@@ -11,17 +11,16 @@ export interface StructPcapIf {
   flags: number
 }
 
-export const init_struct_pcap_if = (): void => {
-  if (initialized) return;
-  init_struct_pcap_addr();
+export const init_struct_pcap_if = async (): Promise<void> => {
+  return cached(init_struct_pcap_if, async () => {
+    await init_struct_pcap_addr();
 
-  koffi.struct('pcap_if', {
-    next: 'pcap_if *',
-    name: 'char *',
-    description: 'char *',
-    addresses: 'pcap_addr *',
-    flags: 'uint'
+    koffi.struct("pcap_if", {
+      next: "pcap_if *",
+      name: "char *",
+      description: "char *",
+      addresses: "pcap_addr *",
+      flags: "uint"
+    });
   });
-
-  initialized = true;
 };

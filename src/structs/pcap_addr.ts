@@ -1,9 +1,7 @@
-import { init_struct_sockaddr, type StructSockAddr } from "./sockaddr";
-import koffi from "koffi";
-import { init_struct_sockaddr_in } from "./sockaddr_in";
-import { init_struct_sockaddr_in6 } from "./sockaddr_in6";
+import { init_struct_sockaddr, type StructSockAddr } from "~/structs/sockaddr";
+import { cached } from "~/utils/initializers";
 import type { ext } from "~/types/external";
-let initialized = false;
+import koffi from "koffi";
 
 export interface StructPcapAddr {
   next: ext<StructPcapAddr> | null
@@ -17,19 +15,16 @@ export interface StructPcapAddr {
   dstaddr: ext<StructSockAddr> | null
 }
 
-export const init_struct_pcap_addr = (): void => {
-  if (initialized) return;
-  init_struct_sockaddr();
-  init_struct_sockaddr_in();
-  init_struct_sockaddr_in6();
+export const init_struct_pcap_addr = async (): Promise<void> => {
+  return cached(init_struct_pcap_addr, async () => {
+    await init_struct_sockaddr();
 
-  koffi.struct('pcap_addr', {
-    next: 'pcap_addr *',
-    addr: 'sockaddr *',
-    netmask: 'sockaddr *',
-    broadaddr: 'sockaddr *',
-    dstaddr: 'sockaddr *'
+    koffi.struct("pcap_addr", {
+      next: "pcap_addr *",
+      addr: "sockaddr *",
+      netmask: "sockaddr *",
+      broadaddr: "sockaddr *",
+      dstaddr: "sockaddr *"
+    });
   });
-
-  initialized = true;
 };

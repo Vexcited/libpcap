@@ -1,8 +1,6 @@
 # `libpcap-ffi` - [`libpcap`](https://github.com/the-tcpdump-group/libpcap) FFI wrapper for Node.js
 
-> **Note:** This project is still in development.
-
-Only supports Windows, for now. I'm currently working on macOS support.
+Supports **Windows**, **macOS** and **Linux**.
 
 This project was made possible thanks to [`koffi`](https://koffi.dev/), an awesome and fast C FFI module for Node.js.
 
@@ -45,7 +43,7 @@ import { findAllDevs } from "libpcap-ffi";
 const { findAllDevs } = require("libpcap-ffi");
 
 // Just use it !
-const devices = findAllDevs();
+const devices = await findAllDevs();
 console.log(devices);
 /** >>> Returns the following array:
  * [
@@ -77,7 +75,7 @@ You should install globally [`tsx`](https://www.npmjs.com/package/tsx).
   
 ```sh
 npm i -g tsx
-# now you can run the examples
+# Now you can run the examples.
 tsx ./examples/devices.ts
 ```
 
@@ -92,8 +90,3 @@ A list of things to do to make the library more complete.
   - [x] Make a function to parse those.
 - [ ] OpenLive
 - [ ] OpenOffline
-
-## Resources
-
-- <https://beej.us/guide/bgnet/pdf/bgnet_a4_c_2.pdf>
-- <https://www.tcpdump.org/manpages>

@@ -12,7 +12,7 @@ export const init_windows_struct_timeval = (): void => {
   koffi.struct("timeval", {
     tv_sec: "long",
     tv_usec: "long"
-  })
+  });
 
   initialized = true;
 };

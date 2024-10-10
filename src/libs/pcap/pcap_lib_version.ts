@@ -1,15 +1,9 @@
-import koffi from 'koffi';
-
-import { load_libpcap } from './loader';
-
-let fn: koffi.KoffiFunction | undefined;
+import { load_libpcap } from "~/libs/pcap/loader";
+import { cached } from "~/utils/initializers";
 
 export const pcap_lib_version = (): string => {
-  if (!fn) {
-    const wpcap = load_libpcap();
-
-    fn = wpcap.func('const char *pcap_lib_version(void)');
-  }
-
-  return fn();
+  return cached(pcap_lib_version, () => {
+    const pcap = load_libpcap();
+    return pcap.func("const char *pcap_lib_version(void)");
+  })();
 };

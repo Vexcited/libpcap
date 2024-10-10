@@ -4,14 +4,14 @@ import koffi from "koffi";
 import { parse_pcap_addr } from "./pcap_addr";
 import type { struct } from "~/types/external";
 
-export const parse_pcap_if = (pcap_if: StructPcapIf): FoundDevice => {
+export const parse_pcap_if = async (pcap_if: StructPcapIf): Promise<FoundDevice> => {
   const addresses: Array<PcapAddr> = [];
-  
+
   if (pcap_if.addresses) {
     for (let address = pcap_if.addresses;;) {
-      const pcap_addr: struct<typeof address> = koffi.decode(address, 'pcap_addr');
-      addresses.push(parse_pcap_addr(pcap_addr));
-    
+      const pcap_addr: struct<typeof address> = koffi.decode(address, "pcap_addr");
+      addresses.push(await parse_pcap_addr(pcap_addr));
+
       // Iterate to the next address if not null.
       if (!pcap_addr.next) break;
       address = pcap_addr.next;
