@@ -1,4 +1,4 @@
-import { findAllDevs } from "..";
+import { findAllDevs } from "../src";
 
 const devices = findAllDevs();
 devices.forEach((device) => {

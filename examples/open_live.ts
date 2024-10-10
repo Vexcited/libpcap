@@ -1,4 +1,4 @@
-import { findAllDevs, openLive } from "..";
+import { findAllDevs, openLive } from "../src";
 
 // Get the device with the according description.
 const device = findAllDevs().find(device => device.description === "MediaTek Wi-Fi 6 MT7921 Wireless LAN Card");
