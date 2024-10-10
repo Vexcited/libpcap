@@ -2,40 +2,44 @@
   "name": "libpcap-ffi",
   "version": "0.1.0",
   "description": "",
-  "private": false,
+  "repository": "https://github.com/Vexcited/libpcap",
+  "sideEffects": false,
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+    "import": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    },
+    "require": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     }
+  },
+  "scripts": {
+    "build": "tsup"
   },
   "files": [
     "dist"
   ],
-  "scripts": {
-    "build": "tsup ./src/index.ts --minify --dts --format esm,cjs --sourcemap",
-    "docs": "typedoc ./src/index.ts --json docs.json",
-    "tsx": "tsx"
-  },
   "keywords": [
     "pcap",
+    "npcap",
+    "wpcap",
     "libpcap",
     "packet",
     "network",
     "koffi"
   ],
-  "author": "Mikkel RINGAUD <mikkel@milescode.dev> (https://github.com/Vexcited)",
+  "author": "Mikkel ALMONTE--RINGAUD <vexitofficial@gmail.com> (https://github.com/Vexcited)",
   "license": "MIT",
   "dependencies": {
-    "koffi": "^2.7.1"
+    "koffi": "^2.9.1"
   },
   "devDependencies": {
-    "@types/node": "^20.10.7",
-    "tsup": "^8.0.1",
-    "tsx": "^4.7.0",
-    "typedoc": "^0.25.7",
-    "typescript": "^5.3.3"
+    "@types/node": "^22.7.5",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.3"
   }
 }
