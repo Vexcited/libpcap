@@ -2,20 +2,10 @@
   "editor.detectIndentation": false,
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
-  "cSpell.language": "en",
-  "cSpell.words": [
-    "broadaddr",
-    "dstaddr",
-    "findalldevs",
-    "flowinfo",
-    "INET",
-    "Internetwork",
-    "libpcap",
-    "Npcap",
-    "ntoa",
-    "ntop",
-    "pcap",
-    "UNSPEC",
-    "wpcap"
-  ]
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  "eslint.useFlatConfig": true
 }
