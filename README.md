@@ -83,10 +83,7 @@ tsx ./examples/devices.ts
 
 A list of things to do to make the library more complete.
 
-- [x] Remove `next` attribute on `Device` objects.
-- [x] Parse `addresses` attribute on `Device` objects.
-  - [x] Make an interface for the `addresses` attribute.
-  - [x] Read them as an array of object.
-  - [x] Make a function to parse those.
-- [ ] OpenLive
-- [ ] OpenOffline
+- [ ] `pcap_open_live` (work in progress)
+- [ ] `pcap_datalink`
+- [ ] `pcap_loop`
+- [ ] `pcap_close`

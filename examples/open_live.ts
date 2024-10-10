@@ -7,6 +7,6 @@ void async function main () {
   if (!device)
     throw new Error("Network device not connected");
 
-  const handler = openLive(device.name, 1500, true, -1);
+  const handler = openLive(device.name, 1518, true, -1);
   console.log(handler);
 }();
